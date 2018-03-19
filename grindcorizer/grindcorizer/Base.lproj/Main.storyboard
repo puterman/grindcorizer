@@ -18,17 +18,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7X-HP-4b9">
-                                <rect key="frame" x="162.5" y="617" width="49" height="30"/>
+                                <rect key="frame" x="16" y="617" width="49" height="30"/>
                                 <state key="normal" title="Record"/>
                                 <connections>
                                     <action selector="recordVideoTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="POT-2w-byB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCN-wU-KCg">
+                                <rect key="frame" x="313" y="617" width="46" height="30"/>
+                                <state key="normal" title="Import"/>
+                                <connections>
+                                    <action selector="importVideoTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="16n-bA-MnT"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="x7X-HP-4b9" secondAttribute="bottom" constant="20" id="93f-4T-IAQ"/>
-                            <constraint firstItem="x7X-HP-4b9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="d5l-dG-f8S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cCN-wU-KCg" secondAttribute="trailing" constant="16" id="Cqy-ok-XkV"/>
+                            <constraint firstItem="x7X-HP-4b9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Lon-2X-ohF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cCN-wU-KCg" secondAttribute="bottom" constant="20" id="iK0-eU-6BJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

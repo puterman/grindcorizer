@@ -8,19 +8,25 @@ import MobileCoreServices
 class ViewController: UIViewController, UINavigationControllerDelegate {
 
     @IBAction func recordVideoTapped() {
-        launchVideoRecorder()
+        launchImagePicker(camera: true)
     }
 
+    @IBAction func importVideoTapped() {
+        launchImagePicker(camera: false)
+    }
 
-    private func launchVideoRecorder() {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) == false {
-            print("Camera not available...")
+    private func launchImagePicker(camera: Bool) {
+        let sourceType: UIImagePickerControllerSourceType = camera ? .camera : .photoLibrary
+
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) == false {
+            print("ImagePicker source type not available: \(sourceType)")
         }
+
 
         // FIXME: available media types etc.
 
         let cameraController = UIImagePickerController()
-        cameraController.sourceType = .camera
+        cameraController.sourceType = sourceType
         cameraController.mediaTypes = [kUTTypeMovie as String]
         cameraController.allowsEditing = false
         cameraController.delegate = self
