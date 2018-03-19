@@ -13,6 +13,7 @@
 		21A87EEA20605B4E00F1D4E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A87EE920605B4E00F1D4E0 /* Assets.xcassets */; };
 		21A87EED20605B4E00F1D4E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A87EEB20605B4E00F1D4E0 /* LaunchScreen.storyboard */; };
 		21A87EF820605B4E00F1D4E0 /* grindcorizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A87EF720605B4E00F1D4E0 /* grindcorizerTests.swift */; };
+		21A87F04206067E900F1D4E0 /* Your_Marginally_Talented_Photographer_Girlfriend_-_06_-_Picking_Up_a_Bingo_Chip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21A87F03206067E800F1D4E0 /* Your_Marginally_Talented_Photographer_Girlfriend_-_06_-_Picking_Up_a_Bingo_Chip.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		21A87EF320605B4E00F1D4E0 /* grindcorizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = grindcorizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A87EF720605B4E00F1D4E0 /* grindcorizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = grindcorizerTests.swift; sourceTree = "<group>"; };
 		21A87EF920605B4E00F1D4E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21A87F03206067E800F1D4E0 /* Your_Marginally_Talented_Photographer_Girlfriend_-_06_-_Picking_Up_a_Bingo_Chip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Your_Marginally_Talented_Photographer_Girlfriend_-_06_-_Picking_Up_a_Bingo_Chip.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				21A87EE120605B4E00F1D4E0 /* grindcorizer */,
+				21A87F022060679B00F1D4E0 /* Resources */,
 				21A87EF620605B4E00F1D4E0 /* grindcorizerTests */,
 				21A87EE020605B4E00F1D4E0 /* Products */,
 			);
@@ -94,6 +97,14 @@
 				21A87EF920605B4E00F1D4E0 /* Info.plist */,
 			);
 			path = grindcorizerTests;
+			sourceTree = "<group>";
+		};
+		21A87F022060679B00F1D4E0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				21A87F03206067E800F1D4E0 /* Your_Marginally_Talented_Photographer_Girlfriend_-_06_-_Picking_Up_a_Bingo_Chip.mp3 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21A87F04206067E900F1D4E0 /* Your_Marginally_Talented_Photographer_Girlfriend_-_06_-_Picking_Up_a_Bingo_Chip.mp3 in Resources */,
 				21A87EED20605B4E00F1D4E0 /* LaunchScreen.storyboard in Resources */,
 				21A87EEA20605B4E00F1D4E0 /* Assets.xcassets in Resources */,
 				21A87EE820605B4E00F1D4E0 /* Main.storyboard in Resources */,
