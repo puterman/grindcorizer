@@ -31,19 +31,44 @@
                                     <action selector="importVideoTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="16n-bA-MnT"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hBU-te-8yy">
+                                <rect key="frame" x="14" y="328.5" width="347" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="14t-10-GOD"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDt-wR-ugX" userLabel="Play">
+                                <rect key="frame" x="172" y="617" width="30" height="30"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="03Q-ls-X0T"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="hBU-te-8yy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="0Vk-fr-uww"/>
+                            <constraint firstItem="cCN-wU-KCg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="90a-sp-cnn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="x7X-HP-4b9" secondAttribute="bottom" constant="20" id="93f-4T-IAQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cCN-wU-KCg" secondAttribute="trailing" constant="16" id="Cqy-ok-XkV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oDt-wR-ugX" secondAttribute="bottom" constant="20" id="DU5-bS-ifh"/>
                             <constraint firstItem="x7X-HP-4b9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Lon-2X-ohF"/>
+                            <constraint firstItem="hBU-te-8yy" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="bHi-n2-Umc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hBU-te-8yy" secondAttribute="trailing" constant="16" id="dFg-34-Qfa"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="x7X-HP-4b9" secondAttribute="trailing" constant="20" symbolic="YES" id="e25-N5-2qG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cCN-wU-KCg" secondAttribute="bottom" constant="20" id="iK0-eU-6BJ"/>
+                            <constraint firstItem="oDt-wR-ugX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mI8-EA-BbZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="playButton" destination="oDt-wR-ugX" id="FTH-pi-xBR"/>
+                        <outlet property="slider" destination="hBU-te-8yy" id="i13-UX-7Si"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="97.601199400299862"/>
         </scene>
     </scenes>
 </document>

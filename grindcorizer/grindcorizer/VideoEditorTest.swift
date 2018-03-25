@@ -51,6 +51,7 @@ class VideoEditorTest {
             print("exception: \(e)")
             return nil
         }
+        
 /*
         let firstVideoCompositionInstruction = AVMutableVideoCompositionInstruction()
         firstVideoCompositionInstruction.timeRange = videoAssetTrack.timeRange

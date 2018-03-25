@@ -9,8 +9,38 @@ import AVKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate {
 
+    @IBOutlet var slider: UISlider!
+    @IBOutlet var playButton: UIButton!
+
+    var videoPath: String?
+    var audioPath: String?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        playButton.isHidden = true
+        slider.isHidden = true
+        slider.value = 0
+    }
+
     var editor: VideoEditorTest?
 
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+    }
+    
+    @IBAction func playButtonTapped() {
+        guard let videoPath = self.videoPath,
+            let audioPath = self.audioPath else {
+                return
+        }
+
+        editor = VideoEditorTest(withVideoPath: videoPath, audioPath: audioPath)
+        let player = editor?.player()
+        if player != nil {
+            presentPlayer(player!)
+        }
+    }
+    
     @IBAction func recordVideoTapped() {
         launchImagePicker(camera: true)
     }
@@ -63,10 +93,10 @@ extension ViewController: UIImagePickerControllerDelegate {
 
         print("Finished picking media with file: \(path)")
 
-        editor = VideoEditorTest(withVideoPath: path.absoluteString, audioPath: audioPath)
-        let player = editor?.player()
-        if player != nil {
-            presentPlayer(player!)
-        }
+        playButton.isHidden = false
+        slider.isHidden = false
+
+        self.videoPath = path.absoluteString
+        self.audioPath = audioPath
     }
 }

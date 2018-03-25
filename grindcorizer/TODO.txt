@@ -1,5 +1,5 @@
-- Create custom video capture control.
-- Create custom video preview control.
 - Implement video editing according to slider value.
+- Create custom video preview control.
+- Create custom video capture control.
 - Implement export of video.
 
