@@ -11,10 +11,12 @@ import AVFoundation
 class VideoEditorTest {
     let videoPath: String
     let audioPath: String
+    let value: Float
 
-    init(withVideoPath videoPath: String, audioPath: String) {
+    init(withVideoPath videoPath: String, audioPath: String, value: Float) {
         self.videoPath = videoPath
         self.audioPath = audioPath
+        self.value = value
     }
 
     func player() -> AVPlayer? {
@@ -38,15 +40,32 @@ class VideoEditorTest {
             return nil
         }
 
-        let duration = min(videoAssetTrack.timeRange.duration, audioAssetTrack.timeRange.duration)
+        let totalDuration = min(videoAssetTrack.timeRange.duration, audioAssetTrack.timeRange.duration)
+        var spentTime = CMTimeMake(0, totalDuration.timescale)
 
-        let seconds = duration.seconds
-        let halfDuration = CMTime(seconds: seconds/2.0, preferredTimescale: 30)
+        let minimumSlice = totalDuration.timescale / 10
+        let maximumSlice = totalDuration.timescale * 5
+
+        while spentTime.value < totalDuration.value {
+            var duration = totalDuration
+            if value > 0.01 {
+                let invertedValue = 1.0 - value
+                let val = invertedValue * Float(maximumSlice - minimumSlice) + Float(minimumSlice)
+                duration = CMTimeMake(Int64(val), totalDuration.timescale)
+            }
+
+            do {
+                try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, duration), of: videoAssetTrack, at: spentTime)
+            } catch(let e) {
+                print("Exception: \(e)")
+                return nil
+            }
+
+            spentTime.value += duration.value
+        }
 
         do {
-            try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, halfDuration), of: videoAssetTrack, at: kCMTimeZero)
-            try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, halfDuration), of: videoAssetTrack, at: halfDuration)
-            try audioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, duration), of: audioAssetTrack, at: kCMTimeZero)
+            try audioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, totalDuration), of: audioAssetTrack, at: kCMTimeZero)
         } catch(let e) {
             print("exception: \(e)")
             return nil

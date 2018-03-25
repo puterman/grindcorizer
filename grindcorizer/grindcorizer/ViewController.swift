@@ -34,7 +34,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                 return
         }
 
-        editor = VideoEditorTest(withVideoPath: videoPath, audioPath: audioPath)
+        editor = VideoEditorTest(withVideoPath: videoPath, audioPath: audioPath, value: slider.value)
         let player = editor?.player()
         if player != nil {
             presentPlayer(player!)
