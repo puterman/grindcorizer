@@ -4,8 +4,12 @@
 
 import UIKit
 import MobileCoreServices
+import AVFoundation
+import AVKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate {
+
+    var editor: VideoEditorTest?
 
     @IBAction func recordVideoTapped() {
         launchImagePicker(camera: true)
@@ -33,6 +37,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
 
         present(cameraController, animated: true, completion: nil)
     }
+
+    func presentPlayer(_ player: AVPlayer) {
+        let avPlayerController = AVPlayerViewController()
+        avPlayerController.player = player
+
+        present(avPlayerController, animated: true, completion: nil)
+    }
 }
 
 extension ViewController: UIImagePickerControllerDelegate {
@@ -41,9 +52,21 @@ extension ViewController: UIImagePickerControllerDelegate {
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let path = info["UIImagePickerControllerMediaURL"]
-        print("Finished picking media with file: \(path)")
+        guard let path = info["UIImagePickerControllerMediaURL"] as? URL else {
+            return
+        }
+        guard let audioPath = Bundle.main.path(forResource: "Your_Marginally_Talented_Photographer_Girlfriend_-_06_-_Picking_Up_a_Bingo_Chip", ofType: "mp3") else {
+            return
+        }
 
         dismiss(animated: true, completion: nil)
+
+        print("Finished picking media with file: \(path)")
+
+        editor = VideoEditorTest(withVideoPath: path.absoluteString, audioPath: audioPath)
+        let player = editor?.player()
+        if player != nil {
+            presentPlayer(player!)
+        }
     }
 }
