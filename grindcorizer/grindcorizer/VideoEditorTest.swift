@@ -40,8 +40,12 @@ class VideoEditorTest {
 
         let duration = min(videoAssetTrack.timeRange.duration, audioAssetTrack.timeRange.duration)
 
+        let seconds = duration.seconds
+        let halfDuration = CMTime(seconds: seconds/2.0, preferredTimescale: 30)
+
         do {
-            try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, duration), of: videoAssetTrack, at: kCMTimeZero)
+            try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, halfDuration), of: videoAssetTrack, at: kCMTimeZero)
+            try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, halfDuration), of: videoAssetTrack, at: halfDuration)
             try audioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, duration), of: audioAssetTrack, at: kCMTimeZero)
         } catch(let e) {
             print("exception: \(e)")
