@@ -50,12 +50,15 @@ class VideoEditorTest {
             var duration = totalDuration
             if value > 0.01 {
                 let invertedValue = 1.0 - value
-                let val = invertedValue * Float(maximumSlice - minimumSlice) + Float(minimumSlice)
+                let randVal = Float(drand48() + 0.5)
+                let val = max(invertedValue * randVal * Float(maximumSlice - minimumSlice), Float(minimumSlice))
                 duration = CMTimeMake(Int64(val), totalDuration.timescale)
             }
 
             do {
-                try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, duration), of: videoAssetTrack, at: spentTime)
+                let maxStartTime = UInt32(totalDuration.value - duration.value)
+                let offset = Int64(arc4random_uniform(maxStartTime))
+                try videoTrack.insertTimeRange(CMTimeRangeMake(CMTimeMake(offset, totalDuration.timescale), duration), of: videoAssetTrack, at: spentTime)
             } catch(let e) {
                 print("Exception: \(e)")
                 return nil
