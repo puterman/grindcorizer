@@ -1,5 +1,5 @@
-- Implement video editing according to slider value.
+- Overlay image.
+- Video effects (invert, colors etc.)
 - Create custom video preview control.
 - Create custom video capture control.
 - Implement export of video.
-
